@@ -1,0 +1,22 @@
+<div style="padding:24px;">
+    <div nz-row nzGutter="16">
+        <div nz-col class="gutter-row" nzSpan="6" *ngFor="let list of colorData;">
+            <div class="gutter-box" [ngStyle]="{'background-color':list.color}">{{list.text}}</div>
+        </div>
+    </div>
+    <div nz-row>
+        <div nz-col nzSpan="12" style="padding-right:8px;">
+            <nz-card style="width:100%;" nzTitle="Card title" [nzExtra]="'extraTemplate'">
+                <app-echart></app-echart>
+            </nz-card>
+        </div>
+        <div nz-col nzSpan="12" style="padding-left:8px;">
+            <nz-card nzHoverable style="width:100%;" [nzCover]="coverTemplate">
+                <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate>
+                <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
+            </ng-template>
+        </div>
+    </div>
+</div>

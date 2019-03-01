@@ -1,0 +1,40 @@
+.ant-card-body{
+    background: #fff;
+    padding: 24px;
+    .ant-card-meta-title{
+        color: #722ED1;
+        background-color: transparent;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+    .ant-card-meta-description{
+        height: 44px;
+        line-height: 22px;
+        overflow: hidden;
+        color: rgba(0, 0, 0, 0.45);
+    }
+}
+
+.card-item-content{
+    display: flex;
+    margin-top: 16px;
+    margin-bottom: -4px;
+    line-height: 20px;
+    height: 20px;
+    justify-content: space-between;
+    .text-grey{
+        color: #bfbfbf;
+    }
+}
+:host ::ng-deep .ant-card-meta-description{
+    height:44px;
+    line-height: 22px;
+    width:100%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}

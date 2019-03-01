@@ -1,0 +1,65 @@
+.layout {
+    width: 100%;
+    height: 100%;
+}
+:host ::ng-deep .ant-layout-sider-children{
+    overflow-x: auto !important;
+}
+:host ::ng-deep .ant-layout-sider-children::-webkit-scrollbar {
+    display: none !important;
+}
+:host ::ng-deep .ant-layout-sider-children .ant-menu-root{
+    height:auto !important;
+}
+:host ::ng-deep .ant-layout-header{
+    background: #1890ff;
+}
+:host ::ng-deep .layout-content{
+    /* padding: 24px; */
+}
+/* 滚动条样式 */
+::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track-piece{
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical{
+    height: 5px;
+    background-color: #999999;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal{
+    width: 5px;
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}
+
+:host ::ng-deep .ant-back-top {
+    bottom: 100px;
+}
+
+:host ::ng-deep .ant-back-top-inner {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+:host ::ng-deep .ant-layout-sider{
+    background:#fff !important;
+}
+
+.ant-layout-sider{
+    background:#fff !important;
+}
+
+:host ::ng-deep .ant-layout-sider-children .ant-menu-root{
+    min-height: 100%!important;
+}

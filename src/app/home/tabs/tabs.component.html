@@ -1,0 +1,7 @@
+<nz-tabset [nzAnimated]="true" class="tabset" [nzSelectedIndex]="selectedIndex">
+    <nz-tab *ngFor="let item of tabsData" [nzTitle]="item.text" (nzClick)="handleJump(item.path)">
+    </nz-tab>
+</nz-tabset>
+<div class="layout-div">
+    <router-outlet></router-outlet>
+</div>

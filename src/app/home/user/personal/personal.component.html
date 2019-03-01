@@ -1,0 +1,66 @@
+<div id="personal">
+    <div nz-row nzGutter="32">
+        <div nz-col nzLg="7" nzMd="24" class="personal-left">
+            <nz-card>
+                <div class="avatarHolder ng-star-inserted">
+                    <img src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"/>
+                    <div class="name">Cipchk</div>
+                    <div>海纳百川，有容乃大</div>
+                </div>
+
+                <div  class="detail ng-star-inserted">
+                    <p><i class="title"></i>交互专家</p>
+                    <p><i class="group"></i>蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED</p>
+                    <p><i class="address"></i> 上海 市辖区 </p>
+                </div>
+
+                <nz-divider nzdashed="" class="ant-divider ant-divider-horizontal ant-divider-dashed ng-star-inserted"><!----></nz-divider>
+
+                <div class="tags ng-star-inserted">
+                    <div class="tagsTitle">标签</div>
+                    <nz-tag *ngFor="let i of tags;">{{i}}</nz-tag>
+
+                    <nz-tag
+                        *ngIf="!inputVisible"
+                        class="editable-tag"
+                        (click)="showInput()">
+                        <i nz-icon type="plus"></i>
+                    </nz-tag>
+                    <input
+                        #inputElement
+                        nz-input
+                        nzSize="small"
+                        *ngIf="inputVisible" type="text"
+                        [(ngModel)]="inputValue"
+                        style="width: 78px;"
+                        (blur)="handleInputConfirm()"
+                        (keydown.enter)="handleInputConfirm()">
+                </div>
+                <nz-divider nzdashed="" class="ant-divider ant-divider-horizontal ant-divider-dashed ng-star-inserted"><!----></nz-divider>
+                <div class="team ng-star-inserted">
+                    <div class="tagsTitle">团队</div>
+                    <nz-spin [nzSpinning]="'false'">
+                        <div class="ant-spin-container">
+                            <div nz-row nzgutter="36">
+                                <div nz-col nzXl="12" nzLg="24" *ngFor="let j of notices;" class="text-truncate" style="margin-bottom: 24px;">
+                                    <nz-avatar [nzSize]="'small'" [nzSrc]="j.logo" style="margin-right: 12px;"></nz-avatar>
+                                    <span>{{j.member}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </nz-spin>
+                </div>
+            </nz-card>
+        </div>
+        <div nz-col nzLg="17" nzMd="24" class="personal-right">
+            <nz-card>
+                <nz-tabset [nzAnimated]="true" class="tabset" [nzSelectedIndex]="selectedIndex">
+                    <nz-tab *ngFor="let item of tabsData" [nzTitle]="item.text" (nzClick)="handleJump(item.path)">
+                    </nz-tab>
+                </nz-tabset>
+
+                <router-outlet></router-outlet>
+            </nz-card>
+        </div>
+    </div>
+</div>

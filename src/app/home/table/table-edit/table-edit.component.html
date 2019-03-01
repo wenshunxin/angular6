@@ -1,0 +1,8 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="16" nzRequired>名字</nz-form-label>
+        <nz-form-control [nzSm]="6" [nzXs]="16">
+            <input nz-input formControlName="name" placeholder="async validate try to write JasonWood">
+        </nz-form-control>
+    </nz-form-item>
+<form>

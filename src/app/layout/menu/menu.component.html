@@ -1,0 +1,23 @@
+<ul nz-menu [nzMode]="'inline'" style="height:100%" nzTheme="light">
+    <div *ngFor="let item of menuList;">
+        <li nz-submenu *ngIf="item.children" [nzOpen]="item.open"  (nzOpenChange)="siderOpenHandler(item.name)">
+            <span title style="font-size: 16px"><i nz-icon [type]="item.icon"></i>{{item.name}}</span>
+            <ul>
+                <li [ngClass]="list.status?'ant-menu-item-selected':''" style="font-size: 14px"
+                    nz-menu-item
+                    *ngFor="let list of item.children" [nzSelected]="list.select"  (click)="jump(list.path)">
+                    <span title>
+                        <!-- <i nz-icon type="mail"></i> -->
+                        <span>{{list.name}}</span>
+                    </span>
+               </li>
+            </ul>
+        </li>
+        <li nz-menu-item nz-tooltip *ngIf=" !item.children" [nzSelected]="item.select" (click)="jump(item.path)">
+            <span title>
+                <i nz-icon [type]="item.icon"></i>
+                <span>{{item.name}}</span>
+            </span>
+        </li>
+    </div>
+</ul>

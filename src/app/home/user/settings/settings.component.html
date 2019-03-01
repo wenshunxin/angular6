@@ -1,0 +1,18 @@
+<div id="settings">
+    <nz-card>
+        <div nz-row>
+            <div nz-col nzXl="5" nzLg="24">
+                <ul nz-menu [nzMode]="menuType" nzTheme='light'>
+                    <li nz-menu-item nz-tooltip nzPlacement="right" *ngFor="let item of menuList;" (click)="handleGo(item.path)" [nzSelected]="item.select">
+                        <span title>
+                            <span>{{item.title}}</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div nz-col nzXl="19" nzLg="24">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </nz-card>
+</div>

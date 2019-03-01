@@ -1,0 +1,82 @@
+#articles{
+    box-sizing: border-box;
+    width:100%;
+    font-size: 14px;
+    .articles-header{
+        background: #fff;
+        padding: 24px;
+        width:100%;
+        box-sizing: border-box;
+        border-radius: 4px;
+        margin-bottom: 16px;
+        .header-tabs{
+            display: flex;
+            padding: 8px 20px;
+            box-sizing: border-box;
+            line-height: 40px;
+            border-bottom: 1px dashed #e8e8e8;
+            .header-left{
+                width:100px;
+                min-width: 100px;
+                display: inline-block;
+            }
+        }
+        .header-tabs:last-child{
+            border:none;
+        }
+    }
+    .articles-content{
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+        ul{
+            margin:0;
+            padding: 0;
+            li.item{
+                border-bottom: 1px solid #e8e8e8;
+                padding: 12px 0;
+                .ant-list-item-meta-title{
+                    color: rgba(0,0,0,.85);
+                    margin-bottom: 12px;
+                    font-size: 16px;
+                    line-height: 24px;
+                    transition: all .3s;
+                    cursor: pointer;
+                }
+                .ant-list-item-meta-title:hover{
+                    color:#1890ff;
+                }
+                .item_last_li{
+                    li{
+                        line-height: 36px;
+                        span{
+                            margin:0 10px;
+                        }
+                    }
+                    li+li{
+                        padding-left: 16px;
+                    }
+                }
+            }
+        }
+        .text-center{
+            text-align: center;
+            padding: 10px 0 0 0;
+        }
+    }
+}
+.header-right-text{
+    color: #1890ff;
+    background-color: transparent;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+    transition: color .3s;
+    margin-left: 8px;
+}
+.articles_spin{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

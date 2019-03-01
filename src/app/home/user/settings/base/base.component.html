@@ -1,0 +1,87 @@
+<div id="base">
+    <div class="title">基本设置</div>
+    <div class="main ng-star-inserted">
+        <div class="left">
+            <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm">
+                <nz-form-item>
+                    <nz-form-label nzFor="email">邮箱</nz-form-label>
+                    <nz-form-control>
+                      <input id="email" type="text" nz-input formControlName="email">
+                      <nz-form-explain *ngIf="validateForm.get('email').dirty && validateForm.get('email').errors">请输入您的邮箱!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label nzFor="email">昵称</nz-form-label>
+                    <nz-form-control>
+                      <input id="name" type="text" nz-input formControlName="name">
+                      <nz-form-explain *ngIf="validateForm.get('name').dirty && validateForm.get('name').errors">请输入您的昵称!!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzFor="profile">个人简介</nz-form-label>
+                    <nz-form-control>
+                      <textarea formControlName="profile" nz-input rows="4" placeholder="write any thing"></textarea>
+                      <nz-form-explain *ngIf="validateForm.get('profile').dirty && validateForm.get('profile').errors">请输入您的个人简介!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzFor="country">国家/地区</nz-form-label>
+                    <nz-form-control>
+                        <nz-select id="country" formControlName="country" nzPlaceHolder="Select a option and change input text above">
+                            <nz-option nzValue="中国" nzLabel="中国"></nz-option>
+                        </nz-select>
+                        <nz-form-explain *ngIf="validateForm.get('country').dirty && validateForm.get('country').errors">请输入您的个人简介!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzFor="country">国家/地区</nz-form-label>
+                    <nz-form-control>
+                        <div style="display:flex;justify-content: space-between;">
+                            <nz-select id="country" formControlName="country" nzPlaceHolder="Select a option and change input text above" style="width:46%;">
+                                <nz-option nzValue="中国" nzLabel="中国"></nz-option>
+                            </nz-select>
+                            <nz-select id="country" formControlName="country" nzPlaceHolder="Select a option and change input text above" style="width:46%;">
+                                <nz-option nzValue="中国" nzLabel="中国"></nz-option>
+                            </nz-select>
+                        </div>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzFor="address">街道地址</nz-form-label>
+                    <nz-form-control>
+                      <input id="address" type="text" nz-input formControlName="address">
+                      <nz-form-explain *ngIf="validateForm.get('address').dirty && validateForm.get('address').errors">请输入您的街道地址!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzFor="phone">联系电话</nz-form-label>
+                    <nz-form-control>
+                      <input id="phone" type="text" nz-input formControlName="phone">
+                      <nz-form-explain *ngIf="validateForm.get('phone').dirty && validateForm.get('phone').errors">请输入您的联系电话!</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <button nz-button nzType="primary">更新基本信息</button>
+                </nz-form-item>
+            </form>
+        </div>
+        <div class="right">
+            <div class="avatar_title">Avatar</div>
+            <div class="avatar">
+                <img alt="Avatar" src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png">
+            </div>
+            <nz-upload
+                nzAction="https://jsonplaceholder.typicode.com/posts/">
+                <button nz-button>
+                  <i nz-icon type="upload"></i><span>Click to Upload</span>
+                </button>
+              </nz-upload>
+        </div>
+    </div>
+</div>

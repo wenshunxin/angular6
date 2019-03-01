@@ -1,0 +1,14 @@
+<nz-layout class="layout">
+    <nz-header>
+        <app-heade></app-heade>
+    </nz-header>
+    <nz-layout>
+        <nz-sider>
+            <app-menu ></app-menu>
+        </nz-sider>
+        <nz-content class="layout-content">
+            <nz-breadcrumb [nzAutoGenerate]="false"></nz-breadcrumb>
+            <router-outlet></router-outlet>
+        </nz-content>
+    </nz-layout>
+</nz-layout>

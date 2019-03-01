@@ -1,0 +1,85 @@
+<div nz-row id="articles">
+    <nz-spin class="articles_spin" [nzSpinning]="isSpinning" [nzDelay]="500"></nz-spin>
+    <div class="articles-header">
+        <div class="header-tabs">
+            <div class="header-left">所属类目：</div>
+            <div class="header-right">
+                <nz-tag *ngFor="let i of categories; let idx = index" nzMode="checkable" [nzChecked]="i.value"         (nzCheckedChange)="changeCategory($event, idx)">
+                  {{i.text}}
+                </nz-tag>
+            </div>
+        </div>
+        <div class="header-tabs">
+            <div class="header-left">owner：</div>
+            <div class="header-right">
+                <nz-select [(ngModel)]="owners" name="owners" [nzMode]="'tags'" style="min-width:300px;max-width:300px;">
+                   <nz-option *ngFor="let i of ownersData" [nzLabel]="i.name" [nzValue]="i.id"></nz-option>
+                </nz-select>
+                <span class="header-right-text" (click)="handleLookOwn()">只看自己的</span>
+            </div>
+        </div>
+
+        <div class="header-tabs">
+            <div class="header-left">其它选项：</div>
+            <div class="header-right">
+                <span>作者：</span>
+                <nz-select style="width: 120px;" [(ngModel)]="user" nzAllowClear nzPlaceHolder="作者">
+                    <nz-option nzValue="张三" nzLabel="张三"></nz-option>
+                    <nz-option nzValue="李四" nzLabel="李四"></nz-option>
+                </nz-select>
+
+                <span style="margin-left:16px;">好评度：</span>
+                <nz-select style="width: 120px;" [(ngModel)]="rate" nzAllowClear nzPlaceHolder="好评度">
+                    <nz-option nzValue="优秀" nzLabel="优秀"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+    </div>
+    <div class="articles-content">
+        <ul>
+            <li class="item" *ngFor="let list of list;">
+                <nz-skeleton [nzLoading]="!list" [nzActive]="true">
+                    <div class="ant-list-item-meta-title">{{list.title}}</div>
+                    <div style="margin-bottom: 16px;">
+                        <nz-tag [nzColor]="'magenta'">magenta</nz-tag>
+                        <nz-tag [nzColor]="'red'">red</nz-tag>
+                        <nz-tag [nzColor]="'volcano'">volcano</nz-tag>
+                    </div>
+                    <div style="margin-bottom: 16px;max-width:1200px;">
+                        {{list.content}}
+                    </div>
+                    <div style="line-height:40px;">
+                        <nz-avatar nzIcon="user" [nzSrc]="list.avatar" [nzSize]="'small'"></nz-avatar>
+                        <span style="color:#1890ff;margin-left:15px;">{{list.owner}}</span>
+                        <span style="margin:0 10px;">发布在</span>
+                        <a target="_blank" href="{{list.href}}">{{list.href}}</a>
+                        <span style="margin:0 10px;">{{list.updatedAt}}</span>
+                    </div>
+                    <div class="item_last_li">
+                        <ul class="" style="display:flex;">
+                            <li>
+                                <i nz-icon type="star" theme="outline"></i>
+                                <span>{{list.star}}</span>
+                            </li>
+                            <li style="padding:0;">|</li>
+                            <li>
+                                <i nz-icon type="like" theme="outline"></i>
+                                <span>{{list.like}}</span>
+                            </li>
+                            <li style="padding:0;">|</li>
+                            <li>
+                                <i nz-icon type="message" theme="outline"></i>
+                                <span>{{list.message}}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nz-skeleton>
+
+            </li>
+        </ul>
+        <div class="text-center mt-md">
+            <button nz-button (click)="getData()" [nzType]="'dashed'" style="min-width:200px;">加载更多</button>
+        </div>
+    </div>
+</div>

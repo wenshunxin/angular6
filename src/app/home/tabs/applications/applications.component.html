@@ -1,0 +1,95 @@
+<div nz-row id="articles">
+    <nz-spin [nzSpinning]="isSpinning" [nzDelay]="500">
+        <div class="articles-header">
+            <div class="header-tabs">
+                <div class="header-left">所属类目：</div>
+                <div class="header-right">
+                    <nz-tag *ngFor="let i of categories; let idx = index" nzMode="checkable" [nzChecked]="i.value"         (nzCheckedChange)="changeCategory($event, idx)">
+                      {{i.text}}
+                    </nz-tag>
+                </div>
+            </div>
+            <div class="header-tabs">
+                <div class="header-left">其它选项：</div>
+                <div class="header-right">
+                    <span>作者：</span>
+                    <nz-select style="width: 120px;" [(ngModel)]="user" nzAllowClear nzPlaceHolder="作者">
+                        <nz-option nzValue="张三" nzLabel="张三"></nz-option>
+                        <nz-option nzValue="李四" nzLabel="李四"></nz-option>
+                    </nz-select>
+                    <span style="margin-left:16px;">好评度：</span>
+                    <nz-select style="width: 120px;" [(ngModel)]="rate" nzAllowClear nzPlaceHolder="好评度">
+                        <nz-option nzValue="优秀" nzLabel="优秀"></nz-option>
+                    </nz-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+            <div nz-row nzGutter="16">
+                <div nz-col class="gutter-row" nzXl="6" nzLg="8" nzSm="12" *ngFor="let item of list;">
+                    <div class="gutter-box">
+                        <div class="gutter-box-header">
+                            <nz-avatar [nzSize]="'small'"  [nzSrc]="item.avatar"></nz-avatar>
+                            <span class="title">{{item.title}}</span>
+                            <div class="gutter-number">
+                                <div>
+                                    <p >活跃用户</p>
+                                    <p>15<em>万</em></p>
+                                </div>
+                                <div>
+                                    <p>新增用户</p>
+                                    <p>1,241</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="ant-card-actions ng-star-inserted">
+                            <li class="ng-star-inserted" style="width: 25%;">
+                                <span>
+                                    <span nz-tooltip nzTitle="下载">
+                                        <i nz-icon type="download" theme="outline"></i>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="ng-star-inserted" style="width: 25%;">
+                                <span>
+                                    <span nz-tooltip nzTitle="下载">
+                                        <i nz-icon type="edit" theme="outline"></i>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="ng-star-inserted" style="width: 25%;">
+                                <span>
+                                    <span nz-tooltip nzTitle="分享">
+                                        <i nz-icon type="share-alt" theme="outline"></i>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="ng-star-inserted" style="width: 25%;">
+                                <span>
+                                    <nz-dropdown>
+                                        <a nz-dropdown>
+                                            <i nz-icon type="ellipsis" theme="outline"></i>
+                                        </a>
+                                        <ul nz-menu nzSelectable>
+                                            <li nz-menu-item>
+                                                <a>1 st menu item</a>
+                                            </li>
+                                            <li nz-menu-item>
+                                                <a>2 nd menu item</a>
+                                            </li>
+                                            <li nz-menu-item>
+                                                <a>3 rd menu item</a>
+                                            </li>
+                                        </ul>
+                                    </nz-dropdown>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nz-spin>
+</div>

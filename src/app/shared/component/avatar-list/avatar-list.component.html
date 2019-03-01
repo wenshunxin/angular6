@@ -1,0 +1,5 @@
+<ul class="avatar-list">
+    <li *ngFor="let item of avatars;">
+        <nz-avatar nzIcon="user" [nzSize]="'small'" [nzSrc]="item.avatar"  [nzTitle]="item.name" nzPlacement="top"  nz-tooltip></nz-avatar>
+    </li>
+</ul>
