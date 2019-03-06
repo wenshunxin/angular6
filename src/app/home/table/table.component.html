@@ -1,26 +1,135 @@
-<nz-table #basicTable
-    [nzData]="dataSet"
-    nzBordered
-    >
-    <thead>
-        <tr>
-            <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Address</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let data of basicTable.data">
-            <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus()"></td>
-            <td>{{data.name}}</td>
-            <td>{{data.age}}</td>
-            <td>{{data.address}}</td>
-            <td>
-                <span (click)="handleEdit(data)">编辑</span>
-                <span>删除</span>
-            </td>
-        </tr>
-    </tbody>
-</nz-table>
+<div id="table">
+
+    <nz-card [nzBordered]="false">
+        <form nz-form [nzLayout]="'inline'" (ngSubmit)="getData()" class="search__form">
+            <div nz-row [nzGutter]="{ xs: 8, sm: 8, md: 8, lg: 24, xl: 48, xxl: 48 }">
+                <div nz-col nzMd="8" nzSm="24">
+                    <nz-form-item>
+                        <nz-form-label nzFor="no">规则编号</nz-form-label>
+                        <nz-form-control>
+                            <input nz-input [(ngModel)]="q.no" name="no" placeholder="请输入" id="no">
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzMd="8" nzSm="24">
+                    <nz-form-item>
+                        <nz-form-label nzFor="status">使用状态</nz-form-label>
+                        <nz-form-control>
+                            <nz-select [(ngModel)]="q.status" name="status" id="status" [nzPlaceHolder]="'请选择'" [nzShowSearch]="true" style="width:100%;">
+                            <nz-option *ngFor="let i of status; let idx = index" [nzLabel]="i.text" [nzValue]="idx"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzMd="8" nzSm="24" *ngIf="expandForm">
+                    <nz-form-item>
+                        <nz-form-label nzFor="callNo">调用次数</nz-form-label>
+                        <nz-form-control>
+                            <input nz-input id="callNo">
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzMd="8" nzSm="24" *ngIf="expandForm">
+                    <nz-form-item>
+                        <nz-form-label nzFor="updatedAt">更新日期</nz-form-label>
+                        <nz-form-control>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzMd="8" nzSm="24" *ngIf="expandForm">
+                    <nz-form-item>
+                        <nz-form-label nzFor="status2">使用状态</nz-form-label>
+                        <nz-form-control>
+                            <nz-select [nzPlaceHolder]="'请选择'" nzId="status2" [nzShowSearch]="true">
+                                <nz-option *ngFor="let i of status; let idx = index" [nzLabel]="i.text" [nzValue]="idx"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzMd="8" nzSm="24" *ngIf="expandForm">
+                    <nz-form-item>
+                        <nz-form-label nzFor="status3">使用状态</nz-form-label>
+                        <nz-form-control>
+                            <nz-select [nzPlaceHolder]="'请选择'" nzId="status3" [nzShowSearch]="true">
+                                <nz-option *ngFor="let i of status; let idx = index" [nzLabel]="i.text" [nzValue]="idx"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col [nzSpan]="expandForm ? 24 : 8" [class.text-right]="expandForm">
+                    <button nz-button type="submit" [nzType]="'primary'" [nzLoading]="loading">查询</button>
+                    <button nz-button type="reset" (click)="reset()" class="mx-sm">重置</button>
+                    <a (click)="expandForm=!expandForm">
+                      {{expandForm ? '收起' : '展开'}}
+                        <i class="anticon" [class.anticon-down]="!expandForm" [class.anticon-up]="expandForm"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <button nz-button (click)="add()" [nzType]="'primary'">
+            <i nz-icon type="plus"></i>
+            <span>新建</span>
+        </button>
+        <ng-container *ngIf="selectedRows.length > 0" >
+            <button nz-button style=" margin:0 8px;">批量操作</button>
+            <nz-dropdown [nzPlacement]="'bottomLeft'">
+                <button nz-button nz-dropdown>
+                    更多操作
+                    <i nz-icon type="down"></i>
+                </button>
+                <ul nz-menu>
+                    <li nz-menu-item (click)="remove()">删除</li>
+                    <li nz-menu-item (click)="approval()">批量审批</li>
+                </ul>
+            </nz-dropdown>
+        </ng-container>
+
+        <div class="my-md ng-star-inserted">
+            <nz-alert [nzType]="'info'" [nzShowIcon]="true" [nzMessage]="message">
+                <ng-template #info>
+                    <i nz-icon type="info"></i>
+                </ng-template>
+              <ng-template #message>
+                已选择
+                <strong class="text-primary">{{selectedRows.length}}</strong> 项&nbsp;&nbsp; 服务调用总计
+                <strong>{{totalCallNo}}</strong> 万
+                <a *ngIf="totalCallNo > 0" (click)="st.clearCheck()" class="ml-lg">清空</a>
+              </ng-template>
+            </nz-alert>
+        </div>
+
+        <nz-table #basicTable
+            [nzData]="dataSet"
+            nzBordered
+            >
+            <thead>
+                <tr>
+                    <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                    <th>规则编号</th>
+                    <th>描述</th>
+                    <th nzShowSort  nzSortKey="callNo">服务调用次数</th>
+                    <th>状态</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of basicTable.data">
+                    <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus(data)"></td>
+                    <td>{{data.no}}</td>
+                    <td>{{data.description}}</td>
+                    <td>{{data.callNo}}</td>
+                    <td>{{data.callNo}}</td>
+                    <td>{{data.callNo}}</td>
+                    <td>
+                        <span class="btn_span">配置</span>
+                        <nz-divider nzType="vertical"></nz-divider>
+                        <span class="btn_span">订阅警报</span>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-card>
+
+</div>

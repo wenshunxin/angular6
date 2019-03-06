@@ -30,6 +30,10 @@ const routes: Routes = [
                 loadChildren:"./user/user.module#UserModule"
             },
             {
+                path:"error",
+                loadChildren:"./error/error.module#ErrorModule"
+            },
+            {
               path: '',
               redirectTo: 'default',
               pathMatch: 'full'

@@ -20,7 +20,6 @@ export class FormComponent implements OnInit {
             this.validateForm.controls[ key ].markAsDirty();
             this.validateForm.controls[ key ].updateValueAndValidity();
         }
-        console.log(value);
     };
 
     resetForm(e: MouseEvent): void {

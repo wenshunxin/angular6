@@ -21,7 +21,7 @@ import { RoutingJumpService } from "../../core/service/routing-jump.service"
                         <i nz-icon type="setting" theme="outline"></i>
                         <span>个人设置</span>
                     </li>
-                    <li nz-menu-item (click)='handleTrigger("/exception")'>
+                    <li nz-menu-item (click)='handleTrigger("/home/error")'>
                         <i nz-icon type="delete" theme="outline"></i>
                         <span>触发错误</span>
                     </li>

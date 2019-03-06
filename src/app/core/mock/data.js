@@ -65,6 +65,27 @@ let menuData = [
                 path:"/home/user/settings"
             }
         ]
+    },
+    {
+        icon:"close",
+        name:"错误页",
+        children:[
+            {
+                icon:"",
+                name:"403",
+                path:"/home/error/403"
+            },
+            {
+                icon:"",
+                name:"404",
+                path:"/home/error/404"
+            },
+            {
+                icon:"",
+                name:"405",
+                path:"/home/error/405"
+            },
+        ]
     }
 ];
 let categories = [
