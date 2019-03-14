@@ -86,6 +86,16 @@ let menuData = [
                 path:"/home/error/405"
             },
         ]
+    },
+    {
+        icon:"calendar",
+        name:"日历",
+        path:"/home/calendar"
+    },
+    {
+        icon:"compass",
+        name:"百度地图",
+        path:"/home/map"
     }
 ];
 let categories = [

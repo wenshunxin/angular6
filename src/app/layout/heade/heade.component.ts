@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutingJumpService } from "../../core/service/routing-jump.service"
+import { RoutingJumpService } from "../../core/service/routing-jump.service";
+import { NzModalService } from 'ng-zorro-antd';
 @Component({
   selector: 'app-heade',
   template: `
     <div class="header_1">
         <img src="https://www.angular.cn/assets/images/logos/angular/angular.svg"  width="60" height="50"/>
     </div>
+    <button nz-button nzType="primary" (click)='handleTrigger("/cnode")' size="small">Cnode</button>
     <div class="header_1">
         <nz-dropdown [nzPlacement]="'bottomRight'" >
             <div nz-dropdown class="alain-default__nav-item d-flex align-items-center px-sm ant-dropdown-trigger">
@@ -71,15 +73,28 @@ import { RoutingJumpService } from "../../core/service/routing-jump.service"
 export class HeadeComponent implements OnInit {
 
     constructor(
-        private routJuming :RoutingJumpService
+        private routJuming :RoutingJumpService,
+        private modalService: NzModalService
     ) { }
 
     ngOnInit() {
     }
 
     handleTrigger(value:string):void{
-        console.log(value)
-        this.routJuming.jumping(value)
-    }
+        // console.log(value)
 
+        if(value.indexOf("login")>-1){
+            this.modalService.confirm({
+                nzTitle: '提示',
+                nzContent: '确定退出登录？',
+                nzOkText: '确定',
+                nzCancelText: '取消',
+                nzOnOk:()=>{
+                    this.routJuming.jumping(value)
+                }
+            });
+        }else{
+            this.routJuming.jumping(value)
+        }
+    }
 }

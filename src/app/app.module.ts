@@ -10,13 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // 主路由模块
 import {AppRoutingModule} from './app-routing.module';
-
 import { SharedModule } from "./shared/shared.module";
-
-
+import { CoreModule } from "./core/core.module";
 @NgModule({
   declarations: [
-      AppComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +22,7 @@ import { SharedModule } from "./shared/shared.module";
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule
   ],
   providers: [],

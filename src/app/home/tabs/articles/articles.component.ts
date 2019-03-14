@@ -35,7 +35,7 @@ export class ArticlesComponent implements OnInit {
         },
     ];
     categories = [];
-    list:any=[];
+    dataList:any=[];
     isSpinning=true;
     num:Number=5;
     constructor() {
@@ -58,7 +58,7 @@ export class ArticlesComponent implements OnInit {
     }
 
     handleInit(count):void{
-        this.list = this.list.concat(getFakeList(count));
+        this.dataList = this.dataList.concat(getFakeList(count));
         this.isSpinning=false;
     }
     getData():void{

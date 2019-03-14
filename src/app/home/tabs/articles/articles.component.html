@@ -37,8 +37,8 @@
     </div>
     <div class="articles-content">
         <ul>
-            <li class="item" *ngFor="let list of list;">
-                <nz-skeleton [nzLoading]="!list" [nzActive]="true">
+            <li class="item" *ngFor="let list of dataList;">
+                <nz-skeleton [nzLoading]="!dataList" [nzActive]="true" [nzAvatar]="false">
                     <div class="ant-list-item-meta-title">{{list.title}}</div>
                     <div style="margin-bottom: 16px;">
                         <nz-tag [nzColor]="'magenta'">magenta</nz-tag>

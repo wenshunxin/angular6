@@ -9,24 +9,29 @@ export class DefaultComponent implements OnInit {
     colorData=[
         {
             color:"#1890ff",
-            text:"123,456"
+            text:"123456"
         },
         {
             color:"#52c41a",
-            text:"123,456"
+            text:"123456"
         },
         {
             color:"#fa8c16",
-            text:"123,456"
+            text:"123456"
         },
         {
             color:"#eb2f96",
-            text:"123,456"
+            text:"123456"
         }
     ];
+    isActive=true;
     constructor() { }
 
     ngOnInit() {
+        setTimeout(()=>{
+            console.log(2)
+            this.isActive = false;
+        },1000)
     }
 
 }

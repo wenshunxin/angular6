@@ -11,6 +11,10 @@ const appRoutes: Routes = [
     loadChildren: './home/home.module#HomeModule'
   },
   {
+    path:"cnode",
+    loadChildren:"./cnode/cnode.module#CnodeModule"  
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

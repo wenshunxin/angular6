@@ -1,0 +1,76 @@
+.header{
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-radius: 3px 3px 0 0;
+    .topic-tab {
+        margin: 0 10px;
+        color: #80bd01;
+    }
+    .current-tab {
+        background-color: #80bd01;
+        color: #fff;
+        padding: 3px 4px;
+        border-radius: 3px;
+    }
+}
+.cell{
+    position: relative;
+    padding: 10px 0 10px 10px;
+    font-size: 14px;
+    padding-right: 10px;
+    background: #fff;
+    line-height: 33px;
+    white-space: nowrap;
+    cursor: pointer;
+    .reply_count {
+        width:80px;
+        display: inline-block;
+        text-align:center;
+        .count_of_replies{
+            color: #9e78c0;
+        }
+        .count_of_visits {
+            font-size: 10px;
+            color: #b4b4b4;
+        }
+    }
+    .tabs{
+        background-color: #e5e5e5;
+        color: #999;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 3px;
+        vertical-align: middle;
+    }
+    .active{
+        background: #80bd01;
+        color:#fff;
+    }
+    .cell_title{
+        width:60%;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin-left:10px;
+        font-size: 16px;
+        color: #333;
+    }
+    .cell_title:hover{
+        text-decoration: underline;
+    }
+    .last_active_time{
+        text-align: right;
+        min-width: 50px;
+        display: inline-block;
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+}
+.cell:hover{
+    background: #f6f6f6;
+}
+.cell+.cell{
+    border-top: 1px solid #f0f0f0;
+}

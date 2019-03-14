@@ -1,0 +1,3 @@
+:host ::ng-deep .ant-fullcalendar td{
+    border:1px solid red;
+}

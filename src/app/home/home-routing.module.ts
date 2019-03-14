@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./home.component";
+import { MapComponent } from "./map/map.component";
 const routes: Routes = [
     {
         path:"",
@@ -32,6 +33,14 @@ const routes: Routes = [
             {
                 path:"error",
                 loadChildren:"./error/error.module#ErrorModule"
+            },
+            {
+                path:"calendar",
+                loadChildren:"./calendar/calendar.module#CalendarModule"
+            },
+            {
+                path:"map",
+                component:MapComponent
             },
             {
               path: '',

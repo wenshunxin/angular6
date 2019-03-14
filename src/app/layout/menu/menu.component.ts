@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
     }
 
     jump(path):void{
-        this.routeJump.jumping(path)
+        this.routeJump.jumping(path);
     }
     handleSelectMenu(menuData):void{
         let router = this.router.url;
@@ -63,18 +63,18 @@ export class MenuComponent implements OnInit {
     }
 
     handleOpen(menuData):void{
-        let router = this.router.url;
-        let _this = this;
-        this.menuList.forEach(item=>{
-            if(item.hasOwnProperty("children")){
-                item.open = false;
-                item.children.forEach(j=>{
-                    if(router.indexOf(j.path)>-1){
-                        item.open = true;
-                    }
-                })
-
-            }
-        })
+        // let router = this.router.url;
+        // let _this = this;
+        // this.menuList.forEach(item=>{
+        //     if(item.hasOwnProperty("children")){
+        //         item.open = false;
+        //         item.children.forEach(j=>{
+        //             if(router.indexOf(j.path)>-1){
+        //                 item.open = true;
+        //             }
+        //         })
+        //
+        //     }
+        // })
     }
 }

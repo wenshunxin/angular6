@@ -7,8 +7,17 @@
             <app-menu ></app-menu>
         </nz-sider>
         <nz-content class="layout-content">
+            <div class="setting-drawer__handle" [ngStyle]="{'right': right}" (click)="open()">
+                <i nz-icon type="setting" theme="outline" *ngIf="!visible" ></i>
+                <i nz-icon type="close" theme="outline" *ngIf="visible"></i>
+            </div>
             <nz-breadcrumb [nzAutoGenerate]="false"></nz-breadcrumb>
-            <router-outlet></router-outlet>
+            <router-outlet ></router-outlet>
+            <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzWidth]="400" nzPlacement="right" [nzMaskClosable]="'false'" nzTitle="Basic Drawer" >
+                  <p>Some contents...</p>
+                  <p>Some contents...</p>
+                  <p>Some contents...</p>
+            </nz-drawer>
         </nz-content>
     </nz-layout>
 </nz-layout>

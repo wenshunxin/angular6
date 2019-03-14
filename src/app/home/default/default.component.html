@@ -1,8 +1,11 @@
 <div style="padding:24px;">
     <div nz-row nzGutter="16">
-        <div nz-col class="gutter-row" nzSpan="6" *ngFor="let list of colorData;">
-            <div class="gutter-box" [ngStyle]="{'background-color':list.color}">{{list.text}}</div>
-        </div>
+
+        <nz-skeleton [nzActive]="true" [nzLoading]="isActive" [nzAvatar]="false" [nzTitle]="false" >
+            <div nz-col class="gutter-row" nzSpan="6" *ngFor="let list of colorData;">
+                <div class="gutter-box" [ngStyle]="{'background-color':list.color}">{{list.text | number}}</div>
+            </div>
+        </nz-skeleton>
     </div>
     <div nz-row>
         <div nz-col nzSpan="12" style="padding-right:8px;">
