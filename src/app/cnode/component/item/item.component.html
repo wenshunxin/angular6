@@ -1,0 +1,22 @@
+<nz-avatar nzIcon="user" [nzShape]="'square'" [nzSrc]="item.author.avatar_url" (click)="handleGoUser(item.author.loginname)"></nz-avatar>
+<span class="reply_count pull-left" *ngIf="item.visit_count">
+    <span class="count_of_replies" title="回复数">
+        {{item.reply_count}}
+    </span>
+    <span >/</span>
+    <span class="count_of_visits" title="点击数">
+        {{item.visit_count}}
+    </span>
+</span>
+<span class="tabs" *ngIf="item.top" [ngClass]="{active:item.top}">置顶</span>
+<span class="tabs" *ngIf="item.good" [ngClass]="{active:item.good}">精华</span>
+<span class="tabs" *ngIf="item.share" [ngClass]="{active:item.good}">分享</span>
+<span class="tabs" *ngIf="!item.top&&!item.good&&!item.share">问答</span>
+
+<span class="cell_title" (click)="handleGoTopic(item.id)">
+    {{item.title}}
+</span>
+<div class="last_time pull-right" style="width:90px;display:inline-block;margin-left: 20px;float:right;">
+    <nz-avatar nzSize="small" [nzShape]="'square'" [nzSrc]="item.url"></nz-avatar>
+    <span class="last_active_time">{{item.last_reply_at | cnodeTime}}</span>
+</div>

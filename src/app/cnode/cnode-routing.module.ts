@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CnodeComponent } from "./cnode.component";
 import { HomeComponent } from './home/home.component';
+import { GetstartComponent } from "./getstart/getstart.component";
+import { UserComponent } from "./user/user.component";
 const routes: Routes = [
     {
         path:"",
@@ -15,6 +17,18 @@ const routes: Routes = [
             {
                 path:"home",
                 component:HomeComponent
+            },
+            {
+                path:"topic/:id",
+                loadChildren:"./topic/topic.module#TopicModule"
+            }
+            {
+                path:"getstart",
+                component:GetstartComponent
+            },
+            {
+                path:"user/:loginname",
+                component:UserComponent 
             }
         ]
     }

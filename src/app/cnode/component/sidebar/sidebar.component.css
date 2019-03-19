@@ -1,0 +1,40 @@
+:host ::ng-deep .ant-card-body{
+    padding: 10px;
+}
+:host ::ng-deep .ant-card-body img+img{
+    margin-top: 10px;
+}
+
+.card{
+    width:100%;
+    height:auto;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    background: #fff;
+    margin-top: 13px;
+}
+.card_title{
+    padding: 10px;
+    width:100%;
+    font-size: 13px;
+    background: #f6f6f6;
+    color: #51585c;
+}
+.card_ul{
+    padding: 0;
+    margin: 0;
+    padding: 10px;
+}
+.card_ul li{
+    line-height: 30px;
+    cursor: pointer;
+}
+.card_ul li span:last-child:hover{
+    text-decoration: underline;
+}
+.card_ul li img{
+    margin-bottom: 10px !important;
+}
+.card_ul li img:last-child{
+    margin:0;
+}

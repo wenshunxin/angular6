@@ -1,0 +1,49 @@
+<nz-card>
+    <img src="https://static.cnodejs.org/FvSQHGgGVh_tkomqIFQ0MDEH9wrg" width="270" alt="">
+    <img src="https://static.cnodejs.org/FjpEWk5hZd8DToyHKDbJ4masolIW" width="270" alt="">
+    <img src="https://static.cnodejs.org/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_" width="270" alt="">
+    <img src="https://static.cnodejs.org/FlajCCXkxZaOsuWp3k0iaiqfrJaS" width="270" alt="">
+</nz-card>
+
+<div class="card">
+    <div class="card_title">
+        无人回复的话题
+    </div>
+    <ul class="card_ul">
+        <li *ngFor="let i of topicData;" [title]="i.text" (click)="handleGoRouter(i.id)">
+            {{i.text}}
+        </li>
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card_title">
+        积分榜  <a (click)="handleGoRouterUser('/cnode/user/top100')">TOP 100 >></a>
+    </div>
+    <ul class="card_ul">
+        <li *ngFor="let i of userData;" [title]="i.text">
+            <span style="margin-right: 10px;">{{i.number}}</span>
+            <span (click)="handleGoRouterUser1(i.text)">{{i.text}}</span>
+        </li>
+    </ul>
+</div>
+
+<div class="card">
+    <div class="card_title">
+        友情社区
+    </div>
+    <ul class="card_ul">
+        <li>
+            <img src="https://static2.cnodejs.org/public/images/ruby-china-20150529.png" width="150" alt="">
+        </li>
+        <li>
+            <img src="https://static2.cnodejs.org/public/images/golangtc-logo.png" width="150" alt="">
+        </li>
+        <li>
+            <img src="https://static2.cnodejs.org/public/images/phphub-logo.png" width="150" alt="">
+        </li>
+        <li>
+            <img src="https://static.cnodejs.org/FjLUc7IJ2--DqS706etPQ1EGajxK" width="150" alt="">
+        </li>
+    </ul>
+</div>

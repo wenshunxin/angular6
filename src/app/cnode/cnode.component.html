@@ -6,8 +6,8 @@
             </a>
             <div class="tabs">
                 <ul>
-                    <li>首页</li>
-                    <li>新手入门</li>
+                    <li (click)="handleGoRouter('/cnode/home')">首页</li>
+                    <li (click)="handleGoRouter('/cnode/getstart')">新手入门</li>
                     <li>API</li>
                     <li>关于</li>
                     <li>注册</li>
@@ -20,7 +20,11 @@
         <div class="content">
             <router-outlet></router-outlet>
         </div>
-        <div class="asider">12</div>
+        <div class="asider">
+            <app-sidebar></app-sidebar>
+        </div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <app-footer></app-footer>
+    </div>
 </div>

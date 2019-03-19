@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'cnodeTime'
+  name: 'time1'
 })
-export class CnodeTimePipe implements PipeTransform {
-
+export class Time1Pipe implements PipeTransform {
     transform(value: any, args?: any): any {
         let dateTimeStamp  = new Date(value).getTime();
         var minute = 1000 * 60;      //把分，时，天，周，半个月，一个月用毫秒表示
@@ -13,7 +12,6 @@ export class CnodeTimePipe implements PipeTransform {
         var week = day * 7;
         var halfamonth = day * 15;
         var month = day * 30;
-        var year = month*12;
         var now = new Date().getTime();   //获取当前时间毫秒
         let result:any;
         var diffValue = now - dateTimeStamp;//时间差
@@ -26,10 +24,8 @@ export class CnodeTimePipe implements PipeTransform {
         var dayC = diffValue/day;
         var weekC = diffValue/week;
         var monthC = diffValue/month;
-        var yearC = diffValue/year;
-        if(yearC >= 1){
-            result = `${parseInt(String(yearC))}年前`;
-        }else if(monthC >= 1 && monthC <= 12){
+
+        if(monthC >= 1 && monthC <= 3){
             result = `${parseInt(String(monthC))}月前`;
         }else if(weekC >= 1 && weekC <= 4){
             result = `${parseInt(String(weekC))}周前`;
@@ -55,5 +51,4 @@ export class CnodeTimePipe implements PipeTransform {
 
         return result;
     }
-
 }

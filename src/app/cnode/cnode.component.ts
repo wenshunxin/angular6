@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutingJumpService } from "../core/service/routing-jump.service";
 @Component({
   selector: 'app-cnode',
   templateUrl: './cnode.component.html',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CnodeComponent implements OnInit {
     constructor(
+        private routingJump:RoutingJumpService
     ) { }
 
-  ngOnInit() {
-    
-  }
+    ngOnInit() {
 
+    }
+
+    handleGoRouter(value:string):void{
+        this.routingJump.jumping(value);
+    }
 }

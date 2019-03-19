@@ -1,0 +1,36 @@
+<nz-spin [nzSpinning]="isSpinning" nzSimple="true">
+    <div class="panel">
+        <div class="header">
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>
+                    <a href="">主页</a>
+                </nz-breadcrumb-item>
+                <nz-breadcrumb-item>
+                    <span>{{loginname}}</span>
+                </nz-breadcrumb-item>
+            </nz-breadcrumb>
+        </div>
+
+        <div class="inner userinfo">
+            <nz-avatar *ngIf="dataJson.avatar_url"  [nzSrc]="dataJson.avatar_url"></nz-avatar>
+            <span style="margin-left:10px;color: #778087;">{{dataJson.loginname}}</span>
+
+            <div style="line-height:40px;">{{dataJson.score}}积分</div>
+            <div>注册时间  {{dataJson.create_at | cnodeTime}}</div>
+        </div>
+
+        <div class="panel" style="margin:13px 0;">
+            <div class="header">最近创建的话题</div>
+            <div class="cell" *ngFor="let i of dataJson.recent_topics;">
+                <app-item [item]="i"></app-item>
+            </div>
+        </div>
+
+        <div class="panel" style="margin:13px 0;">
+            <div class="header">最近参与的话题</div>
+            <div class="cell" *ngFor="let i of dataJson.recent_replies;">
+                <app-item [item]="i"></app-item>
+            </div>
+        </div>
+    </div>
+</nz-spin>
