@@ -4,6 +4,8 @@ import { CnodeComponent } from "./cnode.component";
 import { HomeComponent } from './home/home.component';
 import { GetstartComponent } from "./getstart/getstart.component";
 import { UserComponent } from "./user/user.component";
+import { ApiComponent } from "./api/api.component";
+import { AboutComponent } from "./about/about.component";
 const routes: Routes = [
     {
         path:"",
@@ -21,14 +23,22 @@ const routes: Routes = [
             {
                 path:"topic/:id",
                 loadChildren:"./topic/topic.module#TopicModule"
-            }
+            },
             {
                 path:"getstart",
                 component:GetstartComponent
             },
             {
+                path:"api",
+                component:ApiComponent
+            },
+            {
+                path:"about",
+                component:AboutComponent
+            },
+            {
                 path:"user/:loginname",
-                component:UserComponent 
+                component:UserComponent
             }
         ]
     }

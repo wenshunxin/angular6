@@ -23,14 +23,14 @@ export class TopicComponent implements OnInit {
         });
         this.handleGetData();
 
-        this.router.events.subscribe((event:Event)=>{
+        this.router.events.subscribe((event:NavigationEnd)=>{
             if(event instanceof NavigationEnd) {
                 this.handleGetData();
             }
         })
     }
 
-    handleGetData():void{
+    handleGetData(){
         this.httpService.get(`/topic/${this.id}`)
         .then(res=>{
             this.json = res.data;

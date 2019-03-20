@@ -11,12 +11,14 @@ import { FooterComponent } from './component/footer/footer.component';
 import { GetstartComponent } from './getstart/getstart.component';
 import { UserComponent } from './user/user.component';
 import { ItemComponent } from './component/item/item.component';
+import { ApiComponent } from './api/api.component';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   imports: [
     CommonModule,
     CnodeRoutingModule,
     SharedModule
   ],
-  declarations: [CnodeComponent, HomeComponent,CnodeTimePipe, SidebarComponent, FooterComponent, GetstartComponent, UserComponent, ItemComponent]
+  declarations: [CnodeComponent, HomeComponent,CnodeTimePipe, SidebarComponent, FooterComponent, GetstartComponent, UserComponent, ItemComponent, ApiComponent, AboutComponent]
 })
 export class CnodeModule { }

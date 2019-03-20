@@ -1,5 +1,5 @@
-<nz-spin [nzSpinning]="isSpinning">
-    <div id="topic" *ngIf="!isSpinning">
+<nz-spin [nzSpinning]="isSpinning" [nzTip]="'正在加载中...'">
+    <div id="topic">
         <div class="topic_header">
             <span class="topic_full_title">
                 <span *ngIf="json.good" class="put_top">精华</span>

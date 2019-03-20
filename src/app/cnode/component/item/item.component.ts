@@ -1,4 +1,4 @@
-import { Component, OnInit ,OnInit,Input,EventEmitter} from '@angular/core';
+import { Component, OnInit,Input,EventEmitter} from '@angular/core';
 import { RoutingJumpService } from "../../../core/service/routing-jump.service";
 @Component({
   selector: 'app-item',

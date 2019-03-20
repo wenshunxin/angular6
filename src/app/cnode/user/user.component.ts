@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
         });
         this.handleGetData();
 
-        this.router.events.subscribe((event:Event)=>{
+        this.router.events.subscribe((event:NavigationEnd)=>{
             if(event instanceof NavigationEnd) {
                 this.handleGetData();
             }
@@ -33,12 +33,12 @@ export class UserComponent implements OnInit {
         this.httpService.get(`/user/${this.loginname}`)
         .then(res=>{
             this.dataJson = res.data;
-            this.dataJson.recent_topics.forEach(item=>{
-                item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
-            });
-            this.dataJson.recent_replies.forEach(item=>{
-                item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
-            });
+            // this.dataJson.recent_topics.forEach(item=>{
+            //     item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
+            // });
+            // this.dataJson.recent_replies.forEach(item=>{
+            //     item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
+            // });
             this.isSpinning = false;
         })
     }
