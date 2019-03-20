@@ -32,13 +32,18 @@ export class UserComponent implements OnInit {
     handleGetData():void{
         this.httpService.get(`/user/${this.loginname}`)
         .then(res=>{
+            if(res.data.recent_topics.length){
+                res.data.recent_topics.forEach(item=>{
+                    item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
+                });
+            };
+            if(res.data.recent_replies.length){
+                res.data.recent_replies.forEach(item=>{
+                    item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
+                });
+            };
+
             this.dataJson = res.data;
-            // this.dataJson.recent_topics.forEach(item=>{
-            //     item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
-            // });
-            // this.dataJson.recent_replies.forEach(item=>{
-            //     item.url = `https://avatars0.githubusercontent.com/u/${this.handleRandom()}?v=4&amp;s=120`
-            // });
             this.isSpinning = false;
         })
     }
