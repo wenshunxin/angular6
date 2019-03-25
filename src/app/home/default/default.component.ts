@@ -29,7 +29,6 @@ export class DefaultComponent implements OnInit {
 
     ngOnInit() {
         setTimeout(()=>{
-            console.log(2)
             this.isActive = false;
         },1000)
     }

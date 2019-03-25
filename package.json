@@ -22,6 +22,8 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^7.3.0",
     "angular2-baidu-map": "^4.6.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",

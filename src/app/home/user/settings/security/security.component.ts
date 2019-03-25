@@ -28,6 +28,7 @@ export class SecurityComponent implements OnInit {
             text:"未绑定 MFA 设备，绑定后，可以进行二次确认"
         }
     ]
+    initLoading=false;
     constructor() { }
 
     ngOnInit() {

@@ -26,12 +26,17 @@ export class TableComponent implements OnInit {
        status: null,
        statusList: [],
      };
+     status = [
+        "张三",
+        "历史"
+     ]
     dataSet:any;
     allChecked = false;
     indeterminate = false;
-
+    expandForm=false;
     selectedRows=[];
     totalCallNo = 0;
+    loading=false;
     constructor(
         private routeJump :RoutingJumpService,
          private cdr: ChangeDetectorRef

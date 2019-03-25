@@ -1,7 +1,7 @@
 <div id="layout">
     <header id="header">
         <div class="header-cen">
-            <a href="" class="brand">
+            <a routerLink="/cnode" class="brand">
                 <img src="https://cnodejs.org/public/images/cnodejs_light.svg" alt="">
             </a>
             <div class="tabs">
@@ -26,4 +26,12 @@
     <div id="footer">
         <app-footer></app-footer>
     </div>
+
+    <nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100" (nzOnClick)="notify">
+        <ng-template #tpl>
+            <div class="ant-back-top-inner">
+                <i nz-icon type="up-circle" theme="twotone"></i>
+            </div>
+        </ng-template>
+    </nz-back-top>
 </div>

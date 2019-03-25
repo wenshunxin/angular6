@@ -17,4 +17,7 @@ export class CnodeComponent implements OnInit {
     handleGoRouter(value:string):void{
         this.routingJump.jumping(value);
     }
+    notify(): void {
+        console.log('notify');
+    }
 }

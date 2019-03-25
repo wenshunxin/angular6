@@ -13,4 +13,7 @@ export class CalendarComponent implements OnInit {
     ngOnInit() {
     }
 
+    panelChange(e):void{
+
+    }
 }

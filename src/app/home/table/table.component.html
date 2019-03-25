@@ -13,7 +13,7 @@
                 </div>
                 <div nz-col nzMd="8" nzSm="24">
                     <nz-form-item>
-                        <nz-form-label nzFor="status">使用状态</nz-form-label>
+                        <nz-form-label>使用状态</nz-form-label>
                         <nz-form-control>
                             <nz-select [(ngModel)]="q.status" name="status" id="status" [nzPlaceHolder]="'请选择'" [nzShowSearch]="true" style="width:100%;">
                             <nz-option *ngFor="let i of status; let idx = index" [nzLabel]="i.text" [nzValue]="idx"></nz-option>

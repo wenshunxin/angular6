@@ -4,7 +4,7 @@
     </nz-header>
     <nz-layout>
         <nz-sider>
-            <app-menu ></app-menu>
+            <app-menu (onRemoveElement)="handleOn($event)"></app-menu>
         </nz-sider>
         <nz-content class="layout-content">
             <div class="setting-drawer__handle" [ngStyle]="{'right': right}" (click)="open()">
@@ -12,6 +12,17 @@
                 <i nz-icon type="close" theme="outline" *ngIf="visible"></i>
             </div>
             <nz-breadcrumb [nzAutoGenerate]="false"></nz-breadcrumb>
+
+            <nz-tabset [nzType]="'card'" [nzSize]="'large'" [nzSelectedIndex]="selectedIndex" *ngIf="tabs.length">
+                <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate" (nzClick)="handleTab(tab.path)">
+                    <ng-template #titleTemplate>
+                      <div>
+                        {{ tab.name }}
+                        <i nz-icon type="close" (click)="closeTab(tab)" class="ant-tabs-close-x"></i>
+                      </div>
+                    </ng-template>
+                </nz-tab>
+            </nz-tabset>
             <router-outlet ></router-outlet>
             <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzWidth]="400" nzPlacement="right" [nzMaskClosable]="'false'" nzTitle="Basic Drawer" >
                   <p>Some contents...</p>

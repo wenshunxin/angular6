@@ -8,7 +8,7 @@ import { Router, ActivatedRoute,NavigationEnd } from '@angular/router';
 })
 export class TopicComponent implements OnInit {
     id:String;
-    json={};
+    json:any;
     isSpinning=true;
     repliesNum:Number;
     constructor(

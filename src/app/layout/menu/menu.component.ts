@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import { RoutingJumpService } from "../../core/service/routing-jump.service";
 import data from "../../core/mock/data";
@@ -11,6 +11,7 @@ import data from "../../core/mock/data";
 export class MenuComponent implements OnInit {
     isCollapsed=false;
     menuList=[];
+    @Output() onRemoveElement = new EventEmitter<Element>();
     constructor(
         private routeJump :RoutingJumpService,
         private router: Router
@@ -45,6 +46,7 @@ export class MenuComponent implements OnInit {
     }
 
     jump(path):void{
+        this.onRemoveElement.emit(path);
         this.routeJump.jumping(path);
     }
     handleSelectMenu(menuData):void{
